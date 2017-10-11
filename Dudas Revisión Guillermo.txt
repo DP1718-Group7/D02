@@ -1,0 +1,10 @@
+Preguntas para la clase de revisión del lunes.
+
+C1: ¿Email y phone opcionales? Si lo son, ¿debe ser obligatorio que esté al menos uno?
+C3: ¿PublicationDate hace referencia al momento en el que pasa a ser público o es el momento de creación? Creo que es el momento en el que pasa a público pero es ambiguo.
+C7: El phone no debe tener pattern porque no obligatorio que sigan el patrón. Sin embargo hay un CC por defecto. ¿Debe tenerse esto en cuenta en el Pattern de Java? Mi idea es que no ya que aunque te den un CC por defecto puedes preferir borrarlo y guardar tu phone sin él.
+B7: ¿Relación 1..1 de Explorer a Finder? Pablo tiene que mirar cómo se hizo otros años.
+B18: ¿DefaultFinderResults debe ir en el SystemConfiguration?
+A20: ¿Puede un sponsorship no tener sponsor?
+A22: ¿Coordinates como entidad debe estar en plural? Coordinate sólo haría referencia a longitud y latitud.
+A22: ¿Relación 1..1 de SurvivalClass a Location? Esperar respuesta del B7.
