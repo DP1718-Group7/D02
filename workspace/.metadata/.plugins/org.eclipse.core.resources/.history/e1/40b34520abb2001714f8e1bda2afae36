@@ -1,0 +1,70 @@
+
+package domain;
+
+import java.util.Collection;
+
+import javax.validation.Valid;
+
+public class Explorer extends Actor {
+
+	// Attributes
+	private CreditCard	creditCard;
+
+
+	@Valid
+	public CreditCard getCreditCard() {
+		return this.creditCard;
+	}
+
+	public void setCreditCard(final CreditCard creditCard) {
+		this.creditCard = creditCard;
+	}
+
+
+	// Relationships
+	private Collection<Story>				stories;
+	private Finder							finder;
+	private Collection<ContactEmergency>	contactEmergencies;
+	private Collection<Application>			applications;
+	private Collection<SurvivalClass>		survivalClasses;
+
+
+	public Collection<Story> getStories() {
+		return this.stories;
+	}
+	public void setStories(final Collection<Story> stories) {
+		this.stories = stories;
+	}
+
+	public Finder getFinder() {
+		return this.finder;
+	}
+
+	public void setFinder(final Finder finder) {
+		this.finder = finder;
+	}
+
+	public Collection<ContactEmergency> getContactEmergency() {
+		return this.contactEmergency;
+	}
+
+	public void setContactEmergency(final Collection<ContactEmergency> contactEmergency) {
+		this.contactEmergency = contactEmergency;
+	}
+
+	public Collection<Application> getApplication() {
+		return this.application;
+	}
+
+	public void setApplication(final Collection<Application> application) {
+		this.application = application;
+	}
+
+	public Collection<SurvivalClass> getSurvivalClasses() {
+		return this.survivalClasses;
+	}
+
+	public void setSurvivalClasses(final Collection<SurvivalClass> survivalClasses) {
+		this.survivalClasses = survivalClasses;
+	}
+}

@@ -1,0 +1,59 @@
+
+package domain;
+
+import java.util.Date;
+
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.SafeHtml;
+import org.hibernate.validator.constraints.SafeHtml.WhiteListType;
+
+public class LegalText {
+
+	private String	title;
+	private String	body;
+	private Integer	numberLaw;
+	private Date	momentRegistered;
+
+
+	@NotBlank
+	@NotNull
+	@SafeHtml(whitelistType = WhiteListType.NONE)
+	public String getTitle() {
+		return this.title;
+	}
+	public void setTitle(final String title) {
+		this.title = title;
+	}
+
+	@NotBlank
+	@NotNull
+	@SafeHtml(whitelistType = WhiteListType.NONE)
+	public String getBody() {
+		return this.body;
+	}
+	public void setBody(final String body) {
+		this.body = body;
+	}
+
+	@Min(1)
+	@NotNull
+	public Integer getNumberLaw() {
+		return this.numberLaw;
+	}
+	public void setNumberLaw(final Integer numberLaw) {
+		this.numberLaw = numberLaw;
+	}
+
+	@Past
+	public Date getMomentRegistered() {
+		return this.momentRegistered;
+	}
+	public void setMomentRegistered(final Date momentRegistered) {
+		this.momentRegistered = momentRegistered;
+	}
+
+}

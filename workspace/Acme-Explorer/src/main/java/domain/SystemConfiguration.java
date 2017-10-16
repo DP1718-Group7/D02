@@ -1,0 +1,82 @@
+
+package domain;
+
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Entity;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.Range;
+import org.hibernate.validator.constraints.SafeHtml;
+import org.hibernate.validator.constraints.SafeHtml.WhiteListType;
+import org.hibernate.validator.constraints.URL;
+
+@Entity
+@Access(AccessType.PROPERTY)
+public class SystemConfiguration extends DomainEntity {
+
+	private double	vatNumber;
+	private String	bannerUrl;
+	private String	welcomeMessage;
+	private String	defaultCC;
+	private int		defaultFinderNumber;
+	private int		defaultCacheTime;
+
+
+	@DecimalMin(value = "0.0")
+	public double getVatNumber() {
+		return this.vatNumber;
+	}
+	public void setVatNumber(final double vatNumber) {
+		this.vatNumber = vatNumber;
+	}
+
+	@NotBlank
+	@NotNull
+	@SafeHtml(whitelistType = WhiteListType.NONE)
+	@URL
+	public String getBannerUrl() {
+		return this.bannerUrl;
+	}
+	public void setBannerUrl(final String bannerUrl) {
+		this.bannerUrl = bannerUrl;
+	}
+
+	@NotBlank
+	@NotNull
+	@SafeHtml(whitelistType = WhiteListType.NONE)
+	public String welcomeMessage() {
+		return this.welcomeMessage;
+	}
+	public void setWelcomeMessage(final String welcomeMessage) {
+		this.welcomeMessage = welcomeMessage;
+	}
+
+	@NotBlank
+	@NotNull
+	@SafeHtml(whitelistType = WhiteListType.NONE)
+	public String getDefaultCC() {
+		return this.defaultCC;
+	}
+	public void setDefaultCC(final String defaultCC) {
+		this.defaultCC = defaultCC;
+	}
+
+	@Range(min = 1, max = 100)
+	public int getDefaultFinderNumber() {
+		return this.defaultFinderNumber;
+	}
+	public void setDefaultFinderNumber(final int defaultFinderNumber) {
+		this.defaultFinderNumber = defaultFinderNumber;
+	}
+
+	@Range(min = 1, max = 24)
+	public int getDefaultCacheTime() {
+		return this.defaultCacheTime;
+	}
+	public void setDefaultCacheTime(final int defaultCacheTime) {
+		this.defaultCacheTime = defaultCacheTime;
+	}
+}

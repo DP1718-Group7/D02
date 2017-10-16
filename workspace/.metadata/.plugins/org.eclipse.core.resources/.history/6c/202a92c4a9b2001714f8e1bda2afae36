@@ -1,0 +1,89 @@
+
+package domain;
+
+import java.util.Collection;
+
+import javax.persistence.Column;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.SafeHtml;
+import org.hibernate.validator.constraints.SafeHtml.WhiteListType;
+
+public class Curriculum extends DomainEntity {
+
+	// Attributes
+	private String	ticker;
+
+
+	@NotBlank
+	@NotNull
+	@SafeHtml(whitelistType = WhiteListType.NONE)
+	@Column(unique = true)
+	public String getTicker() {
+		return this.ticker;
+	}
+	public void setTicker(final String ticker) {
+		this.ticker = ticker;
+	}
+
+
+	// Relationships
+	private PersonalRecord					personalRecord;
+	private Collection<EndorserRecord>		endorserRecords;
+	private Collection<ProfessionalRecord>	professionalRecords;
+	private Collection<EducationRecord>		educationRecords;
+	private Collection<MiscellaneousRecord>	miscellaneousRecords;
+
+
+	@Valid
+	// TODO: Relationship pattern
+	public PersonalRecord getPersonalRecord() {
+		return this.personalRecord;
+	}
+
+	public void setPersonalRecord(final PersonalRecord personalRecord) {
+		this.personalRecord = personalRecord;
+	}
+
+	@Valid
+	// TODO: Relationship pattern
+	public Collection<EndorserRecord> getEndorserRecords() {
+		return this.endorserRecords;
+	}
+
+	public void setEndorserRecord(final Collection<EndorserRecord> endorserRecord) {
+		this.endorserRecord = endorserRecord;
+	}
+
+	@Valid
+	// TODO: Relationship pattern
+	public Collection<ProfessionalRecord> getProfessionalRecord() {
+		return this.professionalRecord;
+	}
+
+	public void setProfessionalRecord(final Collection<ProfessionalRecord> professionalRecord) {
+		this.professionalRecord = professionalRecord;
+	}
+
+	@Valid
+	// TODO: Relationship pattern
+	public Collection<EducationRecord> getEducationRecord() {
+		return this.educationRecord;
+	}
+
+	public void setEducationRecord(final Collection<EducationRecord> educationRecord) {
+		this.educationRecord = educationRecord;
+	}
+
+	@Valid
+	// TODO: Relationship pattern
+	public Collection<MiscellaneousRecord> getMiscellaneousRecord() {
+		return this.miscellaneousRecord;
+	}
+
+	public void setMiscellaneousRecord(final Collection<MiscellaneousRecord> miscellaneousRecord) {
+		this.miscellaneousRecord = miscellaneousRecord;
+	}
+}

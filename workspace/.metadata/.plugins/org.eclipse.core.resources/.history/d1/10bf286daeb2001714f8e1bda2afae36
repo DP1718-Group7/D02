@@ -1,0 +1,28 @@
+
+package domain;
+
+import java.util.Collection;
+
+public class Ranger extends Actor {
+
+	// Relationships
+	private Collection<Trip>	trip;
+	private Curriculum			curriculum;
+
+	public Collection<Trip> getTrip() {
+		return this.trip;
+	}
+
+	public void setTrip(final Collection<Trip> trip) {
+		this.trip = trip;
+	}
+
+	public Curriculum getCurriculum() {
+		return this.curriculum;
+	}
+
+	public void setCurriculum(final Curriculum curriculum) {
+		this.curriculum = curriculum;
+	}
+
+}
