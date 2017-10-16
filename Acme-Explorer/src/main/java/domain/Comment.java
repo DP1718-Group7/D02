@@ -1,0 +1,24 @@
+
+package domain;
+
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Entity;
+
+import org.hibernate.validator.constraints.NotBlank;
+
+@Entity
+@Access(AccessType.PROPERTY)
+public class Comment extends DomainEntity {
+
+	private String	body;
+
+
+	@NotBlank
+	public String getBody() {
+		return this.body;
+	}
+	public void setBody(final String body) {
+		this.body = body;
+	}
+}
