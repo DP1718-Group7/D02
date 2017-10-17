@@ -54,7 +54,6 @@ public class EducationRecord extends DomainEntity {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
-	@NotNull
 	public Date getEndDate() {
 		return this.endDate;
 	}

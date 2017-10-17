@@ -17,7 +17,7 @@ public class Stage extends DomainEntity {
 
 	private String	title;
 	private String	description;
-	private Double	price;
+	private double	price;
 
 
 	@NotBlank
@@ -40,12 +40,11 @@ public class Stage extends DomainEntity {
 		this.description = description;
 	}
 
-	@NotNull
 	@DecimalMin(value = "0.0")
-	public Double getPrice() {
+	public double getPrice() {
 		return this.price;
 	}
-	public void setPrice(final Double price) {
+	public void setPrice(final double price) {
 		this.price = price;
 	}
 }

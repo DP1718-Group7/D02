@@ -13,7 +13,7 @@ import org.hibernate.validator.constraints.SafeHtml.WhiteListType;
 
 @Entity
 @Access(AccessType.PROPERTY)
-public class Location {
+public class Location extends DomainEntity {
 
 	private String		name;
 	private GPSPoint	gpsPoint;

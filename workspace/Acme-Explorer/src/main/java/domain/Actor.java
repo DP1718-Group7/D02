@@ -52,7 +52,9 @@ public abstract class Actor extends DomainEntity {
 		this.surname = surname;
 	}
 
+	@NotBlank
 	@NotNull
+	@SafeHtml(whitelistType = WhiteListType.NONE)
 	@Email
 	public String getEmail() {
 		return this.email;

@@ -3,34 +3,31 @@ package domain;
 
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
-import javax.validation.constraints.NotNull;
 
 public class GPSPoint {
 
 	// Attributes
-	private Double	latitude;
-	private Double	longitude;
+	private double	latitude;
+	private double	longitude;
 
 
-	@NotNull
 	@DecimalMin(value = "-90.0")
 	@DecimalMax(value = "90.0")
-	public Double getLatitude() {
+	public double getLatitude() {
 		return this.latitude;
 	}
 
-	public void setLatitude(final Double latitude) {
+	public void setLatitude(final double latitude) {
 		this.latitude = latitude;
 	}
 
-	@NotNull
 	@DecimalMin(value = "-180.0")
 	@DecimalMax(value = "180.0")
-	public Double getLongitude() {
+	public double getLongitude() {
 		return this.longitude;
 	}
 
-	public void setLongitude(final Double longitude) {
+	public void setLongitude(final double longitude) {
 		this.longitude = longitude;
 	}
 

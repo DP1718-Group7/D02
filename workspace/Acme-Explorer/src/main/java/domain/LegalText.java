@@ -19,11 +19,11 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Access(AccessType.PROPERTY)
-public class LegalText {
+public class LegalText extends DomainEntity {
 
 	private String	title;
 	private String	body;
-	private Integer	numberLaw;
+	private int		numberLaw;
 	private Date	momentRegistered;
 	private boolean	isDraft;
 
@@ -49,11 +49,10 @@ public class LegalText {
 	}
 
 	@Min(1)
-	@NotNull
-	public Integer getNumberLaw() {
+	public int getNumberLaw() {
 		return this.numberLaw;
 	}
-	public void setNumberLaw(final Integer numberLaw) {
+	public void setNumberLaw(final int numberLaw) {
 		this.numberLaw = numberLaw;
 	}
 

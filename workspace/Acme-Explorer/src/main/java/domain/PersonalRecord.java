@@ -9,7 +9,7 @@ import org.hibernate.validator.constraints.SafeHtml;
 import org.hibernate.validator.constraints.SafeHtml.WhiteListType;
 import org.hibernate.validator.constraints.URL;
 
-public class PersonalRecord {
+public class PersonalRecord extends DomainEntity {
 
 	private String	name;
 	private String	photo;
@@ -39,7 +39,9 @@ public class PersonalRecord {
 		this.photo = photo;
 	}
 
+	@NotBlank
 	@NotNull
+	@SafeHtml(whitelistType = WhiteListType.NONE)
 	@Email
 	public String getEmail() {
 		return this.email;

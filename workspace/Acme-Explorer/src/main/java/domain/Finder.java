@@ -33,6 +33,7 @@ public class Finder extends DomainEntity {
 	public void setKeyWord(final String keyWord) {
 		this.keyWord = keyWord;
 	}
+
 	@DecimalMin(value = "0.0")
 	@DecimalMax(value = "1000000.0")
 	public Double getMinPrice() {
@@ -41,6 +42,7 @@ public class Finder extends DomainEntity {
 	public void setMinPrice(final Double minPrice) {
 		this.minPrice = minPrice;
 	}
+
 	@DecimalMin(value = "0.0")
 	@DecimalMax(value = "1000000.0")
 	public Double getMaxPrice() {

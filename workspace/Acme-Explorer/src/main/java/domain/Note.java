@@ -49,8 +49,6 @@ public class Note extends DomainEntity {
 		this.remark = remark;
 	}
 
-	@NotBlank
-	@NotNull
 	@SafeHtml(whitelistType = WhiteListType.NONE)
 	public String getResponse() {
 		return this.response;
