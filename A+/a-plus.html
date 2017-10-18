@@ -106,7 +106,7 @@ function instanciateObjects(){
 				var nameId=relationshipsName[name].concat("Id");
 				var multiplicity=specification.definitions[entitiesName[index]]
 							      .relationships[relationshipsName[name]].multiplicity;
-				if(multiplicity=="0..*" || multiplicity=="1..*"){
+				if(multiplicity=="0..*" || multiplicity=="1..*" || multiplicity=="*..*"){
 					object[nameId]=[0];
 				}else{
 					object[nameId]=0;
