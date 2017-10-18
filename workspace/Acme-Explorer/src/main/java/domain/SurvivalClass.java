@@ -1,7 +1,6 @@
 
 package domain;
 
-import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Access;
@@ -21,10 +20,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Access(AccessType.PROPERTY)
 public class SurvivalClass extends DomainEntity {
 
-	private String		title;
-	private String		description;
-	private Date		momentOrganized;
-	private Location	location;
+	private String	title;
+	private String	description;
+	private Date	momentOrganized;
 
 
 	@NotBlank
@@ -59,27 +57,19 @@ public class SurvivalClass extends DomainEntity {
 		this.momentOrganized = momentOrganized;
 	}
 
+
+	// Relationship
+
+	private Location	location;
+
+
 	@Valid
+	// TODO: Relationship pattern	
 	public Location getLocation() {
 		return this.location;
 	}
 	public void setLocation(final Location location) {
 		this.location = location;
-	}
-
-
-	// Relationship
-	private Collection<Explorer>	explorers;
-
-
-	@Valid
-	// TODO: Relationship pattern
-	public Collection<Explorer> getExplorers() {
-		return this.explorers;
-	}
-
-	public void setExplorers(final Collection<Explorer> explorers) {
-		this.explorers = explorers;
 	}
 
 }

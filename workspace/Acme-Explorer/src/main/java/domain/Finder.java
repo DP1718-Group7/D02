@@ -8,7 +8,6 @@ import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
 
 import org.hibernate.validator.constraints.SafeHtml;
@@ -35,7 +34,7 @@ public class Finder extends DomainEntity {
 	}
 
 	@DecimalMin(value = "0.0")
-	@DecimalMax(value = "1000000.0")
+	// @DecimalMax(value = "1000000.0")
 	public Double getMinPrice() {
 		return this.minPrice;
 	}
@@ -44,7 +43,7 @@ public class Finder extends DomainEntity {
 	}
 
 	@DecimalMin(value = "0.0")
-	@DecimalMax(value = "1000000.0")
+	// @DecimalMax(value = "1000000.0")
 	public Double getMaxPrice() {
 		return this.maxPrice;
 	}

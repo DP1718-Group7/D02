@@ -13,15 +13,15 @@ import javax.validation.Valid;
 public class Sponsor extends Actor {
 
 	// Relationships
-	private Collection<SponsorShip>	sponsorships;
+	private Collection<Sponsorship>	sponsorships;
 
 
 	@Valid
 	// TODO: Relationship pattern
-	public Collection<SponsorShip> sponsorships() {
+	public Collection<Sponsorship> sponsorships() {
 		return this.sponsorships;
 	}
-	public void setSponsorships(final Collection<SponsorShip> sponsorships) {
+	public void setSponsorships(final Collection<Sponsorship> sponsorships) {
 		this.sponsorships = sponsorships;
 	}
 

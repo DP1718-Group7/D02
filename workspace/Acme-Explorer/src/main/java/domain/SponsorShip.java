@@ -14,7 +14,7 @@ import org.hibernate.validator.constraints.URL;
 
 @Entity
 @Access(AccessType.PROPERTY)
-public class SponsorShip extends DomainEntity {
+public class Sponsorship extends DomainEntity {
 
 	// Attributes
 	private String		bannerUrl;

@@ -90,7 +90,8 @@ public abstract class Actor extends DomainEntity {
 	private UserAccount					userAccount;
 	private Collection<SocialIdentity>	socialIdentities;
 	private Collection<Folder>			folders;
-	private Collection<Message>			messages;
+	private Collection<Message>			sentMessages;
+	private Collection<Message>			receivedMessages;
 
 
 	@NotNull
@@ -126,11 +127,22 @@ public abstract class Actor extends DomainEntity {
 
 	@Valid
 	// TODO: Relationship pattern
-	public Collection<Message> getMessages() {
-		return this.messages;
+	public Collection<Message> getSentMessages() {
+		return this.sentMessages;
 	}
 
-	public void setMessages(final Collection<Message> messages) {
-		this.messages = messages;
+	public void setSentMessages(final Collection<Message> sentMessages) {
+		this.sentMessages = sentMessages;
 	}
+
+	@Valid
+	// TODO: Relationship pattern
+	public Collection<Message> getReceivedMessages() {
+		return this.receivedMessages;
+	}
+
+	public void setReceivedMessages(final Collection<Message> receivedMessages) {
+		this.receivedMessages = receivedMessages;
+	}
+
 }

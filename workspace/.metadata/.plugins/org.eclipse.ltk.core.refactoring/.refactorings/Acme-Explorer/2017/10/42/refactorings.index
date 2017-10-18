@@ -2,3 +2,7 @@
 1508185475870	Encapsulate field 'defaultFinderNumber'
 1508185486198	Encapsulate field 'defaultCacheTime'
 1508259215713	Encapsulate field 'attachmentUrls'
+1508318809393	Rename type 'SponsorShip'
+1508319186283	Encapsulate field 'sentMessages'
+1508319192696	Encapsulate field 'receivedMessages'
+1508321805504	Encapsulate field 'ranger'

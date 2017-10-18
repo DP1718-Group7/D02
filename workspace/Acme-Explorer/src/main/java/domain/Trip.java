@@ -67,7 +67,7 @@ public class Trip extends DomainEntity {
 		this.description = description;
 	}
 
-	@DecimalMin(value = "0")
+	@DecimalMin(value = "0.0")
 	public Double getPrice() {
 		return this.price;
 	}
@@ -75,10 +75,10 @@ public class Trip extends DomainEntity {
 		this.price = price;
 	}
 
-	public Collection<String> getRequirement() {
+	public Collection<String> getRequirements() {
 		return this.requirements;
 	}
-	public void setRequirement(final Collection<String> requirements) {
+	public void setRequirements(final Collection<String> requirements) {
 		this.requirements = requirements;
 	}
 
@@ -130,10 +130,11 @@ public class Trip extends DomainEntity {
 
 	// Relationships
 	private LegalText					legalText;
-	private Category					category;
-	private Collection<Tag>				tags;
-	private Collection<SurvivalClass>	survivalClasses;
+	private Ranger						ranger;
 	private Collection<Stage>			stages;
+	private Collection<Tag>				tags;
+	private Category					category;
+	private Collection<SurvivalClass>	survivalClasses;
 	private Collection<Story>			stories;
 	private Collection<Audit>			audits;
 	private Collection<Note>			notes;
@@ -151,12 +152,22 @@ public class Trip extends DomainEntity {
 
 	@Valid
 	// TODO: Relationship pattern
-	public Category getCategory() {
-		return this.category;
+	public Ranger getRanger() {
+		return this.ranger;
 	}
 
-	public void setCategory(final Category category) {
-		this.category = category;
+	public void setRanger(final Ranger ranger) {
+		this.ranger = ranger;
+	}
+
+	@Valid
+	// TODO: Relationship pattern
+	public Collection<Stage> getStages() {
+		return this.stages;
+	}
+
+	public void setStages(final Collection<Stage> stages) {
+		this.stages = stages;
 	}
 
 	@Valid
@@ -171,22 +182,22 @@ public class Trip extends DomainEntity {
 
 	@Valid
 	// TODO: Relationship pattern
+	public Category getCategory() {
+		return this.category;
+	}
+
+	public void setCategory(final Category category) {
+		this.category = category;
+	}
+
+	@Valid
+	// TODO: Relationship pattern
 	public Collection<SurvivalClass> getSurvivalClasses() {
 		return this.survivalClasses;
 	}
 
 	public void setSurvivalClasses(final Collection<SurvivalClass> survivalClasses) {
 		this.survivalClasses = survivalClasses;
-	}
-
-	@Valid
-	// TODO: Relationship pattern
-	public Collection<Stage> getStages() {
-		return this.stages;
-	}
-
-	public void setStages(final Collection<Stage> stages) {
-		this.stages = stages;
 	}
 
 	@Valid

@@ -8,7 +8,6 @@ import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
@@ -64,20 +63,5 @@ public class Note extends DomainEntity {
 	}
 	public void setResponseMoment(final Date responseMoment) {
 		this.responseMoment = responseMoment;
-	}
-
-
-	// Relationship
-	private Trip	trip;
-
-
-	@Valid
-	// TODO: Relationship pattern
-	public Trip getTrip() {
-		return this.trip;
-	}
-
-	public void setTrip(final Trip trip) {
-		this.trip = trip;
 	}
 }

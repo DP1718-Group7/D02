@@ -75,7 +75,6 @@ public class ProfessionalRecord extends DomainEntity {
 		this.role = role;
 	}
 
-	@NotNull
 	@SafeHtml(whitelistType = WhiteListType.NONE)
 	@URL
 	public String getAttachmentLink() {

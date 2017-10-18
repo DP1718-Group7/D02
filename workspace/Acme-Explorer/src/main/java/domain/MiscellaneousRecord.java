@@ -34,7 +34,6 @@ public class MiscellaneousRecord extends DomainEntity {
 		this.title = title;
 	}
 
-	@NotNull
 	@SafeHtml(whitelistType = WhiteListType.NONE)
 	@URL
 	public String getAttachmentLink() {
