@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>A+</title>
+</head>
+<body>
+<textarea id="specification" rows="20" cols="150">
+{
+    "definitions": {
+        "explorer": {
+        	"type": "object",
+        	"required": ["id", "name"],
+        	"properties": {
+			"id": {"type": "number"},
+        		"name": {"type": "string"}
+	     	},
+ 		"relationships": {
+			"trip":{"type":"object","multiplicity": "0..*"}
+		}
+	    
+        },
+	"trip":{
+		"type": "object",
+        	"required": ["id", "price"],
+        	"properties": {
+			"id": {"type": "number"},
+        		"price": {"type": "number"}
+	     	},
+ 		"relationships": {
+			"place":{"type":"object","multiplicity": "1..1"}
+		}
+	},
+	"place":{
+		"type": "object",
+        	"required": ["id", "name"],
+        	"properties": {
+			"id": {"type": "number"},
+        		"name": {"type": "string"}
+	     	},
+ 		"relationships": 0
+	}
+    }
+}
+</textarea> 
+
+<button type="button" onclick="execute()">Generar</button> 
+<p id="resultado"></p>
+</body>
+<script>
+
+var specification;
+function execute(){
+	var json = document.getElementById("specification").value;
+	specification=getObject(json);
+	instanciateObjects();
+	print();
+
+}
+function getObject(json){
+	return JSON.parse(json);
+}
+var objects={};
+
+//instanciateObjects() crea una instancia única inicial de cada objeto, con valor "void" para string y 0 para number.
+function instanciateObjects(){
+	var entities=Object.keys(specification.definitions);
+	var entitiesName=[];
+	var index=0;
+	for(var entityKey in entities){
+
+		var object={};
+		entitiesName.push(entities[entityKey]);
+		
+		var properties=Object.keys(specification.definitions[entitiesName[index]].properties);
+		
+		var propertiesName=[];
+		for(var propertyKey in properties){
+			propertiesName.push(properties[propertyKey]);
+		}
+
+		var relationships=Object.keys(specification.definitions[entitiesName[index]].relationships);
+		var relationshipsName=[];
+		if(!Object.is(relationships,0)){
+			
+			for(var relationshipKey in relationships){
+				relationshipsName.push(relationships[relationshipKey]);
+			}
+		}
+
+
+		for(var name in propertiesName){
+			var type = specification.definitions[entitiesName[index]].properties[propertiesName[name]].type;
+			
+			if(Object.is(type,"number")){
+				object[propertiesName[name]]=0;
+				
+			}
+			if(Object.is(type,"string")){
+				object[propertiesName[name]]="void";
+			}
+			
+		}
+		
+		if(relationshipsName.length >0){
+			for(var name in relationshipsName){
+				var nameId=relationshipsName[name].concat("Id");
+				var multiplicity=specification.definitions[entitiesName[index]]
+							      .relationships[relationshipsName[name]].multiplicity;
+				if(multiplicity=="0..*" || multiplicity=="1..*"){
+					object[nameId]=[0];
+				}else{
+					object[nameId]=0;
+				}
+			}
+
+		}
+		
+		objects[entitiesName[index]]=object;
+		index=index+1;
+
+	}
+	
+	
+}
+
+function print(){
+	
+	document.getElementById("resultado").innerHTML=JSON.stringify(objects);
+
+}
+
+</script>
+</html>
